@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "../assets/images/hero-image.jpg";
+---
+
+<section
+  class="relative min-h-[85vh] flex items-center overflow-hidden"
+  aria-label="Welkom bij Beestig Gezond"
+>
+  <div class="absolute inset-0 z-0 h-full w-full overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Hond en kat samen in de natuur"
+      width={1920}
+      height={1080}
+      loading="eager"
+      class="parallax-bg block w-full h-[120%] object-cover object-[center_30%] max-md:object-center will-change-transform"
+    />
+  </div>
+  <div class="hero-overlay absolute inset-0 z-[1]"></div>
+  <div
+    class="relative z-[2] max-w-[1200px] mx-auto px-8 pt-40 pb-24 w-full max-md:text-center"
+  >
+    <div class="max-w-[520px] max-md:mx-auto">
+      <h1
+        class="font-display text-[clamp(2.8rem,5.5vw,4.5rem)] leading-[1.1] text-dark mb-5 text-nowrap"
+      >
+        Beestig <em class="text-primary italic">Gezond</em>
+      </h1>
+      <p class="sr-only">Dierenartsenpraktijk in Belsele</p>
+      <p class="text-lg text-text leading-relaxed mb-10 max-md:mx-auto">
+        Dierenartsenpraktijk in Belsele, gespecialiseerd in kleine huisdieren.
+        Wij bieden deskundige en liefdevolle zorg voor uw hond, kat en ander
+        gezelschapsdier, van preventieve check-ups tot gespecialiseerde
+        behandelingen.
+      </p>
+      <a
+        href="#afspraak"
+        class="inline-block bg-primary text-white! font-bold rounded-full px-11 py-4 text-lg transition-all duration-200 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-lg"
+        >Maak nu een afspraak</a
+      >
+    </div>
+  </div>
+  <div class="absolute bottom-[-1px] left-0 w-full z-[3]">
+    <svg
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="block w-full h-20"
+    >
+      <path
+        d="M0,40 C360,120 720,0 1080,60 C1260,90 1380,40 1440,50 L1440,120 L0,120 Z"
+        fill="var(--color-bg-warm)"></path>
+    </svg>
+  </div>
+</section>
+
+<script>
+  const parallaxBg = document.querySelector(".parallax-bg") as HTMLElement;
+  if (parallaxBg && window.matchMedia("(min-width: 769px)").matches) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const offset = window.scrollY * 0.35;
+        parallaxBg.style.transform = `translateY(${offset}px)`;
+      },
+      { passive: true },
+    );
+  }
+</script>
+
+<style>
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.75) 40%,
+      rgba(255, 255, 255, 0.15) 70%,
+      transparent 100%
+    );
+  }
+
+  @media (max-width: 920px) {
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+    }
+
+    .parallax-bg {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      will-change: auto;
+    }
+  }
+</style>

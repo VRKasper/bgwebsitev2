@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3ec492;
+  --color-primary-dark: #2ea87b;
+  --color-accent: #a0ce4e;
+  --color-dark: #2c3038;
+  --color-dark-soft: #3d434c;
+  --color-text: #4b4b4b;
+  --color-text-light: #747474;
+  --color-bg-warm: #f8f7f4;
+  --color-bg-muted: #f0efe9;
+  --color-border: #e0dede;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+}

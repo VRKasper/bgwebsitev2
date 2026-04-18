@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import lineSeparator from "../assets/graphics/line-separator.png";
+import elisabethImg from "../assets/images/elisabeth.png";
+import helenaImg from "../assets/images/helena.jpg";
+import lotteImg from "../assets/images/lotte-claeys.jpeg";
+import patternBg from "../assets/graphics/pattern-bg.jpg";
+
+const vets = [
+  {
+    name: "Elisabeth Bonte",
+    role: "Dierenarts",
+    image: elisabethImg,
+  },
+  { name: "Helena Brône", role: "Dierenarts", image: helenaImg },
+  { name: "Lotte Claeys", role: "Assistent", image: lotteImg },
+];
+---
+
+<section
+  class="relative py-24 text-white"
+  id="diensten"
+  aria-labelledby="diensten-heading"
+>
+  <div
+    class="services-bg absolute inset-0 bg-cover bg-center"
+    style={`background-image: url('${patternBg.src}');`}
+  >
+  </div>
+  <div class="max-w-[1100px] mx-auto px-8 relative z-[1]">
+    <div class="text-center mb-12">
+      <h2
+        id="diensten-heading"
+        class="font-display text-[clamp(1.8rem,3vw,2.6rem)] text-white mb-4"
+      >
+        Experts In Dierenverzorging
+      </h2>
+      <Image
+        src={lineSeparator}
+        alt=""
+        class="block mx-auto opacity-80"
+        width={200}
+        height={32}
+        aria-hidden="true"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div>
+        <p class="mb-5 text-[1.05rem] opacity-90 leading-[1.8]">
+          U kan in de praktijk terecht voor eerstelijns diergeneeskunde van
+          kleine huisdieren. Daarnaast doen wij — na voorafgaand contact — ook
+          huisbezoeken, radiografische opnames, chirurgische ingrepen en
+          tandheelkunde.
+        </p>
+        <p class="mb-5 text-[1.05rem] opacity-90 leading-[1.8]">
+          Eveneens bieden wij de mogelijkheid om een erg zieke patiënt te
+          hospitaliseren en te verzorgen. Wanneer u op zoek bent naar een
+          geschikte voeding voor uw dier, kunnen wij daar ook bij helpen.
+        </p>
+        <p class="mb-5 text-[1.05rem] opacity-90 leading-[1.8]">
+          Voor spoedgevallen is er steeds telefonische permanentie, ook tijdens
+          het weekend. Tijdens het weekend kan u ook terecht bij de dierenarts
+          van wacht.
+        </p>
+
+        <div class="flex gap-10 mt-8 flex-wrap">
+          <div>
+            <span
+              class="block text-xs uppercase tracking-[0.12em] opacity-60 mb-1"
+              >Spoedgevallen</span
+            >
+            <a
+              href="tel:+32476330384"
+              class="text-xl font-bold text-primary hover:opacity-80 transition-opacity"
+              >0476 33 03 84</a
+            >
+          </div>
+          <div>
+            <span
+              class="block text-xs uppercase tracking-[0.12em] opacity-60 mb-1"
+              >Contact email</span
+            >
+            <a
+              href="mailto:info@beestiggezond.be"
+              class="text-lg font-bold text-primary hover:opacity-80 transition-opacity"
+              >info@beestiggezond.be</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6 max-lg:flex-row max-lg:flex-wrap">
+        {
+          vets.map((vet) => (
+            <div class="flex items-center gap-6 bg-white/[0.06] border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-primary/40 max-lg:flex-1 max-lg:min-w-[200px] max-lg:flex-col max-lg:text-center">
+              <div class="w-[100px] h-[100px] rounded-[14px] overflow-hidden shrink-0">
+                <Image
+                  src={vet.image}
+                  alt={`${vet.role} ${vet.name}`}
+                  width={200}
+                  height={200}
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 class="font-display text-xl mb-0.5">{vet.name}</h3>
+                <p class="text-sm opacity-60 uppercase tracking-[0.1em]">
+                  {vet.role}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 48, 56, 0.88);
+  }
+</style>

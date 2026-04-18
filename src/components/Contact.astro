@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import lineSeparator from "../assets/graphics/line-separator.png";
+import patternBg from "../assets/graphics/pattern-bg.jpg";
+---
+
+<section
+  class="cta-section relative py-24 text-center text-white"
+  id="contact"
+  aria-labelledby="contact-heading"
+>
+  <div
+    class="cta-bg absolute inset-0 bg-cover bg-center"
+    style={`background-image: url('${patternBg.src}');`}
+  >
+  </div>
+  <div class="max-w-[1100px] mx-auto px-8 relative z-[1]">
+    <div class="text-center mb-12">
+      <h2
+        id="contact-heading"
+        class="font-display text-[clamp(1.8rem,3vw,2.6rem)] text-white mb-4"
+      >
+        Wij geven om uw viervoeter
+      </h2>
+      <Image
+        src={lineSeparator}
+        alt=""
+        class="block mx-auto opacity-60"
+        width={200}
+        height={32}
+        aria-hidden="true"
+      />
+    </div>
+    <p class="max-w-[640px] mx-auto mb-8 text-lg leading-[1.8] opacity-95">
+      Als baasje is het heel belangrijk dat uw beste vriend ook de beste
+      verzorging krijgt. Wij begrijpen dit als geen ander, en wij doen dan ook
+      ons uiterste best om uw viervoeter van de beste zorg te voorzien.
+    </p>
+    <a
+      href="#afspraak"
+      class="inline-block bg-white text-primary-dark! font-bold rounded-full px-11 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+      >Maak een afspraak</a
+    >
+
+    <div
+      class="max-w-[600px] mx-auto mt-16 bg-white/12 backdrop-blur-lg rounded-3xl p-10 border border-white/20"
+    >
+      <h3 class="font-display text-xl mb-6">Heeft u nog vragen?</h3>
+      <form class="contact-form flex flex-col gap-4" action="#" method="POST">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="naam"
+            placeholder="Uw naam"
+            required
+            autocomplete="name"
+            class="w-full py-3.5 px-5 border border-white/25 rounded-xl bg-white/10 text-white font-body text-[0.95rem] transition-all duration-200 focus:outline-none focus:border-white focus:bg-white/[0.18] placeholder:text-white/55"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Uw e-mailadres"
+            required
+            autocomplete="email"
+            class="w-full py-3.5 px-5 border border-white/25 rounded-xl bg-white/10 text-white font-body text-[0.95rem] transition-all duration-200 focus:outline-none focus:border-white focus:bg-white/[0.18] placeholder:text-white/55"
+          />
+        </div>
+        <input
+          type="text"
+          name="onderwerp"
+          placeholder="Onderwerp"
+          required
+          class="w-full py-3.5 px-5 border border-white/25 rounded-xl bg-white/10 text-white font-body text-[0.95rem] transition-all duration-200 focus:outline-none focus:border-white focus:bg-white/[0.18] placeholder:text-white/55"
+        />
+        <textarea
+          name="bericht"
+          placeholder="Uw bericht"
+          rows="5"
+          required
+          class="w-full py-3.5 px-5 border border-white/25 rounded-xl bg-white/10 text-white font-body text-[0.95rem] transition-all duration-200 focus:outline-none focus:border-white focus:bg-white/[0.18] placeholder:text-white/55 resize-y"
+        ></textarea>
+        <button
+          type="submit"
+          class="self-start inline-block bg-white text-primary-dark font-bold rounded-full px-8 py-3 text-[0.95rem] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer"
+          >Verzenden</button
+        >
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(62, 196, 146, 0.92),
+      rgba(46, 168, 123, 0.95)
+    );
+  }
+</style>

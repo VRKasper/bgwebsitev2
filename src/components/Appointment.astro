@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import lineSeparator from "../assets/graphics/line-separator.png";
+import patternBg from "../assets/graphics/pattern-bg.jpg";
+---
+
+<section
+  class="bg-bg-warm py-20"
+  id="afspraak"
+  aria-labelledby="afspraak-heading"
+>
+  <div class="max-w-[1100px] mx-auto px-8">
+    <div class="text-center mb-12">
+      <h2
+        id="afspraak-heading"
+        class="font-display text-[clamp(1.8rem,3vw,2.6rem)] text-dark mb-4"
+      >
+        Maak hier een afspraak
+      </h2>
+      <Image
+        src={lineSeparator}
+        alt=""
+        class="inline-block opacity-60"
+        width={200}
+        height={4}
+        aria-hidden="true"
+      />
+    </div>
+
+    <div
+      class="relative rounded-[20px] p-10 text-white text-center overflow-hidden mb-12"
+    >
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={`background-image: url('${patternBg.src}');`}
+      >
+      </div>
+      <div class="relative z-[1]">
+        <h3 class="font-display text-xl mb-3 font-normal">
+          Gelieve voor volgende gevallen altijd telefonisch contact op te nemen:
+        </h3>
+        <a
+          href="tel:+32476330384"
+          class="inline-block text-3xl font-bold text-white! mb-5 tracking-wide hover:opacity-85 transition-opacity"
+          >0476 33 03 84</a
+        >
+        <ul
+          class="list-none flex flex-wrap justify-center gap-y-2 gap-x-8 text-[0.95rem] text-white/90 max-md:flex-col max-md:gap-y-1"
+        >
+          <li class="before:content-['✦_'] before:opacity-60">
+            Voor dringende gevallen
+          </li>
+          <li class="before:content-['✦_'] before:opacity-60">
+            Voor operaties
+          </li>
+          <li class="before:content-['✦_'] before:opacity-60">
+            Voor uitgebreid verder onderzoek
+          </li>
+          <li class="before:content-['✦_'] before:opacity-60">
+            Voor huisbezoeken (gelieve hiervoor een dag op voorhand te bellen)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- iFrame placeholder — replace with actual booking widget -->
+    <div
+      class="bg-white rounded-2xl border border-border p-12 text-center min-h-[400px] flex items-center justify-center"
+    >
+      <p class="text-text-light text-lg">
+        Hier komt het afsprakenmodule (iFrame)
+      </p>
+    </div>
+  </div>
+</section>
