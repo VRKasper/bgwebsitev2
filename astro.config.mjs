@@ -9,6 +9,10 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://www.beestiggezond.be",
 
+  build: {
+    inlineStylesheets: "always",
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
